@@ -1,7 +1,6 @@
-# imagerecognition
-##These are some prototypes i've done for my Image Recognition class at university.
+## These are some prototypes i've done for my Image Recognition class at university.
 
-##This project runs on Python3, and it requires the following libs installed:
+## This project runs on Python3, and it requires the following libs installed:
 
 * Numpy (for some image processing stuff)
 * OpenCV
@@ -9,7 +8,7 @@
 * RegEX (to guide the code into which sections of the code are dates, money values, phone numbers, or postal codes)
 
 
-###Ideally, when finished, there should be codes for:
+### Ideally, when finished, there should be codes for:
 
 * Recognizing all of the text in a image and turning it into a string
 * Recognizing specific parts of text and only converting those sections
