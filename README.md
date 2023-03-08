@@ -11,6 +11,5 @@
 
 ### Ideally, when finished, there should be codes for:
 
-* Recognizing all of the text in a image and turning it into a string
-* Recognizing specific parts of text and only converting those sections
-* Recognizing the monetary values of recepits and invoices and checking if everything adds up (i will probably scrap this idea up if i don't have time)
+* Recognizing text in an image and turning it into a string
+* Preprocessing blurred, crooked or noisy images to properly recognize the text on them
