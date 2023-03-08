@@ -1,5 +1,7 @@
 ## These are some prototypes i've done for my Image Recognition class at university.
 
+python project.py --image "image path"
+
 ## This project runs on Python3, and it requires the following libs installed:
 
 * Numpy (for some image processing stuff)
