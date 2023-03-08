@@ -5,7 +5,7 @@ import imutils
 import pytesseract
 
 ap = argparse.ArgumentParser()
-ap.add_argument("-i", "--image", required=False,
+ap.add_argument("-i", "--image", required=True,
 	help="caminho da imagem")
 args = vars(ap.parse_args())
 
@@ -23,11 +23,11 @@ def canny(img):
     return cv2.Canny(img, 200, 125)
     
 
-img = cv2.imread('images/noise.jpg')
+#img = cv2.imread('images/noise.jpg')
 img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
 pytesseract.pytesseract.tesseract_cmd=r"C:\Program Files\Tesseract-OCR\tesseract.exe"
 #custom_config = r'--oem 3 --psm 6'
-custom_config = r'-c tessedit_char_whitelist=ABCDEFGHIJKMNOPRSTUVWYXZ0123456789'
+#custom_config = r'-c tessedit_char_whitelist=ABCDEFGHIJKMNOPRSTUVWYXZ0123456789'
 
 results = pytesseract.image_to_osd(img, output_type=pytesseract.Output.DICT)
 # display the orientation information
