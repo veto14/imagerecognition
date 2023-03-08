@@ -5,7 +5,8 @@
 * Numpy (for some image processing stuff)
 * OpenCV
 * Tesseract
-* RegEX (to guide the code into which sections of the code are dates, money values, phone numbers, or postal codes)
+* ImUtils
+* ArgParse
 
 
 ### Ideally, when finished, there should be codes for:
