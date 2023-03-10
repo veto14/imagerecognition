@@ -13,7 +13,7 @@ def get_grayscale(img):
     return cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
 
 def thresholding(img):
-    return cv2.threshold(img, 0, 255, cv2.THRESH_BINARY + cv2.THRESH_OTSU)[1]
+    return cv2.threshold(img, 80, 255, cv2.THRESH_BINARY + cv2.THRESH_OTSU)[1]
 
 def opening(img):
     kernel = np.ones((5,5),np.uint8)
@@ -24,7 +24,7 @@ def canny(img):
 
 def normalization(image):
     norm_img = np.zeros((image.shape[0],image.shape[1]))
-    return cv2.normalize(image, norm_img, 0, 255, cv2.NORM_MINMAX)
+    return cv2.normalize(image, norm_img, 15, 255, cv2.NORM_MINMAX)
     
 
 #img = cv2.imread('images/noise.jpg')
@@ -36,11 +36,11 @@ pytesseract.pytesseract.tesseract_cmd=r"C:\Program Files\Tesseract-OCR\tesseract
 
 results = pytesseract.image_to_osd(img, output_type=pytesseract.Output.DICT)
 # display the orientation information
-print("[INFO] detected orientation: {}".format(
-	results["orientation"]))
-print("[INFO] rotate by {} degrees to correct".format(
-	results["rotate"]))
-print("[INFO] detected script: {}".format(results["script"]))
+#print("[INFO] detected orientation: {}".format(
+#	results["orientation"]))
+#print("[INFO] rotate by {} degrees to correct".format(#
+#	results["rotate"]))
+#print("[INFO] detected script: {}".format(results["script"]))
 
 # rotate the image to correct the orientation
 if(results["rotate"] != 180):
@@ -59,7 +59,7 @@ boxes = pytesseract.image_to_boxes(dst)#, config=custom_config)
 text = pytesseract.image_to_string(dst)#, config=custom_config)
 for b in boxes.splitlines():
     b = b.split(' ')
-    dst = cv2.rectangle(dst, (int(b[1]), h - int(b[2])), (int(b[3]), h - int(b[4])), (0, 255, 0), 2)
-cv2.imshow("Image", dst)
+    dst = cv2.rectangle(thresh, (int(b[1]), h - int(b[2])), (int(b[3]), h - int(b[4])), (0, 255, 0), 2)
+cv2.imshow("Image", thresh)
 cv2.waitKey(0)
 print(text)
