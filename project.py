@@ -21,6 +21,10 @@ def opening(img):
 
 def canny(img):
     return cv2.Canny(img, 200, 125)
+
+def normalization(image):
+    norm_img = np.zeros((image.shape[0],image.shape[1]))
+    return cv2.normalize(image, norm_img, 0, 255, cv2.NORM_MINMAX)
     
 
 #img = cv2.imread('images/noise.jpg')
@@ -46,6 +50,7 @@ if(results["rotate"] != 180):
 dst = cv2.resize(img, None, fx=2, fy=2, interpolation=cv2.INTER_CUBIC)
 dst = cv2.fastNlMeansDenoisingColored(dst, None, 10, 10, 6, 12) 
 h, w, c = dst.shape
+dst = normalization(dst)
 gray = get_grayscale(dst)
 thresh = thresholding(gray)
 opening = opening(gray)
